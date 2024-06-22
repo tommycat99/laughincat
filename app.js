@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Subscribing to trades on a specific token
             const payload = {
                 method: "subscribeTokenTrade",
-                keys: ["EFWfexeERFia5BwPHg2ZWpfS13gtqBE1CTgNKCDapump"] // array of token CAs to watch
+                keys: ["3qz2i8PLtRZGW339EYkKrkAcfBT2CYR8kfqAZrkypump"] // array of token CAs to watch
             };
             ws.send(JSON.stringify(payload));
         };
