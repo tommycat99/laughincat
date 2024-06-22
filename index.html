@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Trade Listener</title>
+    <title>Laughing Cat CTO</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,6 +41,21 @@
             border-radius: 5px;
             background-color: #fff;
         }
+        .new-trade {
+            background-color: #e0ffe0; /* Light green background for new trades */
+            animation: fadeOut 3s forwards, shake 0.5s;
+        }
+        @keyframes fadeOut {
+            from { background-color: #e0ffe0; }
+            to { background-color: #fff; }
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
         #instructions {
             text-align: center;
             margin: 20px;
@@ -54,11 +69,19 @@
     </style>
 </head>
 <body>
-    <h1>WebSocket Trade Listener</h1>
+    <h1>Laughin Cat CTO Project</h1>
     <p id="instructions">
-        Buy some coins to make the cat laugh.<br>
-        At 50k mcap the cat will die.<br>
-        At 100k he will be resurrected.
+        <b>Buy some coins to make the cat laugh.</b><br>
+        pump.fun/#<br>
+        Welcome to Laughin Cat Coin, the meme coin that's all about fun and community! Our mission is to bring joy and trust to the crypto world. Here’s why you’ll love us:<br>
+
+Community-Driven: The dev owns nothing. This coin is purely for the community.<br>
+
+Interactive Fun: Every time someone buys, the cat on our website starts laughing!<br>
+
+Trust and Future Projects: Our goal is to earn your trust for future exciting projects.<br>
+
+Join us on Pump.fun and be part of the laughter revolution with Laughin Cat Coin!<br>
     </p>
     <img id="catImage" src="cat.jfif" alt="Cat" width="200">
     <button id="startButton">START</button>

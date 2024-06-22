@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Subscribing to trades on a specific token
             const payload = {
                 method: "subscribeTokenTrade",
-                keys: ["kyKfGjFCekidjPPxcwaosmAXEotM9j7oN6tVhiHpump"] // array of token CAs to watch
+                keys: ["EFWfexeERFia5BwPHg2ZWpfS13gtqBE1CTgNKCDapump"] // array of token CAs to watch
             };
             ws.send(JSON.stringify(payload));
         };
@@ -60,20 +60,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function addTradeToLog(trade) {
-        trades.push(trade);
+        trades.unshift(trade);
         if (trades.length > 5) {
-            trades.shift();
+            trades.pop();
         }
         updateTradeLog();
     }
 
     function updateTradeLog() {
-        tradeLog.innerHTML = trades.map(trade => `
-            <div class="trade">
+        tradeLog.innerHTML = trades.map((trade, index) => `
+            <div class="trade ${index === 0 ? 'new-trade' : ''}">
                 <p>Trader: ${trade.traderPublicKey.substring(0, 6)}</p>
                 <p>Type: ${trade.txType}</p>
                 <p>Amount: ${trade.tokenAmount}</p>
             </div>
         `).join('');
+
+        // Remove new-trade class after animation
+        setTimeout(() => {
+            const newTradeElement = tradeLog.querySelector('.new-trade');
+            if (newTradeElement) {
+                newTradeElement.classList.remove('new-trade');
+            }
+        }, 3000);
     }
 });
